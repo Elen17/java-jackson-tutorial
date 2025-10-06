@@ -1,0 +1,60 @@
+[
+  {
+    "ID": "ORD-12345",
+    "amount": 299.98,
+    "customer": {
+      "ID": "CUST-1001",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "addresses": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zipCode": "10001",
+        "country": "USA"
+      }
+    },
+    "items": [
+      {
+        "productId": "PROD-001",
+        "productName": "Wireless Mouse",
+        "quantity": 2,
+        "unitPrice": 49.99
+      },
+      {
+        "productId": "PROD-002",
+        "productName": "Keyboard",
+        "quantity": 1,
+        "unitPrice": 99.99
+      }
+    ]
+  },
+  {
+    "ID": "ORD-123456",
+    "amount": 149.98,
+    "customer": {
+      "ID": "CUST-1002",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "addresses": {
+        "street": "1234 Main St",
+        "city": "New York",
+        "zipCode": "10002",
+        "country": "USA"
+      }
+    },
+    "items": [
+      {
+        "productId": "PROD-001",
+        "productName": "Wireless Mouse",
+        "quantity": 1,
+        "unitPrice": 49.99
+      },
+      {
+        "productId": "PROD-002",
+        "productName": "Keyboard",
+        "quantity": 1,
+        "unitPrice": 99.99
+      }
+    ]
+  }
+]
