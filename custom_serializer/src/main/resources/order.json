@@ -1,6 +1,7 @@
 {
   "orderId": "ORD-12345",
   "totalAmount": 299.98,
+  "orderDate": "2025-10-06",
   "customer": {
     "id": "CUST-1001",
     "name": "John Doe",

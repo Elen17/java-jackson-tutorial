@@ -6,8 +6,14 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.example.custom_serializer.model.Order;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+import java.util.Optional;
 
 public class OrderSerializer extends StdSerializer<Order> {
+
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     public OrderSerializer(Class<Order> clazz) {
         super(clazz);
     }
@@ -27,6 +33,12 @@ public class OrderSerializer extends StdSerializer<Order> {
         jsonGenerator.writeObjectField("customer", order.getCustomer());
         // items
         jsonGenerator.writeObjectField("items", order.getItems());
+        // orderDate
+        jsonGenerator.writeStringField("orderDate",
+                Optional.ofNullable(order.getOrderDate())
+                        .map(FORMATTER::format)
+                        .orElse(null)
+        );
         // totalAmount
         jsonGenerator.writeEndObject();
 

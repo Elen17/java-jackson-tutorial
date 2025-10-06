@@ -12,10 +12,13 @@ import org.example.custom_serializer.model.Order;
 import org.example.custom_serializer.model.OrderItem;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDeserializer extends StdDeserializer<Order> {
+    private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public OrderDeserializer(Class<?> vc) {
         super(vc);
@@ -32,6 +35,10 @@ public class OrderDeserializer extends StdDeserializer<Order> {
         // Deserialize simple fields
         order.setOrderId(node.get("orderId").asText());
         order.setTotalAmount(node.get("totalAmount").asDouble());
+        if (node.has("orderDate")) {
+            String orderDate = node.get("orderDate").asText();
+            order.setOrderDate(LocalDate.parse(orderDate, dateFormat));
+        }
 
         // Deserialize Customer
         JsonNode customerNode = node.get("customer");
